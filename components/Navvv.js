@@ -32,7 +32,7 @@ export default function Navvv() {
     )
 
     // Replace with your actual email
-    const recipientEmail = "aashishreddy999@gmail.com"
+    const recipientEmail = "info.lookaround.in@gmail.com"
 
     // Open mail client
     window.location.href = `mailto:${recipientEmail}?subject=${emailSubject}&body=${emailBody}`
