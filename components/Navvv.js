@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { Navbar, Nav, Container, Form, Button, Modal } from 'react-bootstrap'
+import { useRouter } from 'next/router'
 
 export default function Navvv() {
+  const router = useRouter()
   const [showModal, setShowModal] = useState(false)
+  const [searchInput, setSearchInput] = useState('')
   const [feedback, setFeedback] = useState({
     name: '',
     email: '',
@@ -43,6 +46,13 @@ export default function Navvv() {
     })
   }
 
+  const handleSearch = (e) => {
+    e.preventDefault()
+    if (searchInput.trim()) {
+      router.push(`/search?query=${encodeURIComponent(searchInput.trim())}`)
+    }
+  }
+
   return (
     <>
       <Navbar
@@ -71,14 +81,16 @@ export default function Navvv() {
                 Ping the Dev
               </Nav.Link>
             </Nav>
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={handleSearch}>
               <Form.Control
                 type="search"
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
               />
-              <Button variant="light">Search</Button>
+              <Button variant="light" type="submit">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
