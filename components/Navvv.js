@@ -65,7 +65,7 @@ export default function Navvv() {
       >
         <Container>
           <Navbar.Brand href="/" style={{ color: 'white', fontWeight: '700' }}>
-            lookaround.in X spacez.co
+            lookaround.in
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
